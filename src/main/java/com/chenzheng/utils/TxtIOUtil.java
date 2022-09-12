@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * 读写txt文件的工具类
  */
-public class TxtIOUtils {
+public class TxtIOUtil {
 
     /**
      * 读出txt文件
