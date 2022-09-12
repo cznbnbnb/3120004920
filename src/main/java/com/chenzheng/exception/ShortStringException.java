@@ -1,8 +1,26 @@
 package com.chenzheng.exception;
 
-/**
- * @author cz
- * @date 2022/9/12
- */
-public class ShortStringException {
+public class ShortStringException extends Exception {
+
+
+    /**
+     *
+     * @param message 自定义异常文案
+     */
+    public ShortStringException(String message) {
+        super(message);
+    }
+
+    public ShortStringException() {
+        super();
+    }
+
+    public ShortStringException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public ShortStringException(Throwable cause) {
+        super(cause);
+    }
+
 }

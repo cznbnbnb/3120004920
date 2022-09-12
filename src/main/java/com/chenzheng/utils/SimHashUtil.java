@@ -1,5 +1,6 @@
 package com.chenzheng.utils;
 
+import com.chenzheng.exception.ShortStringException;
 import com.hankcs.hanlp.HanLP;
 
 import java.math.BigInteger;
@@ -32,8 +33,8 @@ public class SimHashUtil {
     public static String getSimHash(String str){
         // 文本长度太短时HanLp无法取得关键字
         try{
-            if(str.length() < 200){throw new ShortStringExceptionUtil("文本过短！");}
-        }catch (ShortStringExceptionUtil e){
+            if(str.length() < 200){throw new ShortStringException("文本过短！");}
+        }catch (ShortStringException e){
             e.printStackTrace();
             return null;
         }
