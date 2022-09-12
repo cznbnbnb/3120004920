@@ -10,12 +10,12 @@ public class SimHashUtil {
 
     /**
      * 传入String，计算出它的hash值，并以字符串形式输出
-     * @param str 传入的Srting类型字符串
+     * @param str 传入的Srting类型字符
      * @return 返回str的hash值
      */
     public static String getHash(String str){
+        // 使用了MD5获得hash值
         try{
-            // 这里使用了MD5获得hash值
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             return new BigInteger(1, messageDigest.digest(str.getBytes("UTF-8"))).toString(2);
         }catch(Exception e){
@@ -38,7 +38,7 @@ public class SimHashUtil {
             return null;
         }
         // 用数组表示特征向量,取128位,从 0 1 2 位开始表示从高位到低位
-        int[] v = new int[128];
+        int[] k = new int[128];
         // 1、分词（使用了外部依赖hankcs包提供的接口）
         List<String> keywordList = HanLP.extractKeyword(str, str.length());//取出所有关键词
         // hash
@@ -46,6 +46,7 @@ public class SimHashUtil {
         int i = 0;//以i做外层循环
         for(String keyword : keywordList){
             // 2、获取hash值
+
             String keywordHash = getHash(keyword);
             if (keywordHash.length() < 128) {
                 // hash值可能少于128位，在低位以0补齐
@@ -54,23 +55,26 @@ public class SimHashUtil {
                     keywordHash += "0";
                 }
             }
+
             // 3、加权、合并
-            for (int j = 0; j < v.length; j++) {
+            for (int j = 0; j < k.length; j++) {
                 // 对keywordHash的每一位与'1'进行比较
                 if (keywordHash.charAt(j) == '1') {
                     //权重分10级，由词频从高到低，取权重10~0
-                    v[j] += (10 - (i / (size / 10)));
+                    k[j] += (10 - (i / (size / 10)));
                 } else {
-                    v[j] -= (10 - (i / (size / 10)));
+                    k[j] -= (10 - (i / (size / 10)));
                 }
             }
             i++;
         }
+
         // 4、降维
-        String simHash = "";// 储存返回的simHash值
-        for (int j = 0; j < v.length; j++) {
+        // 储存simHash值
+        String simHash = "";
+        for (int j = 0; j < k.length; j++) {
             // 从高位遍历到低位
-            if (v[j] <= 0) {
+            if (k[j] <= 0) {
                 simHash += "0";
             } else {
                 simHash += "1";

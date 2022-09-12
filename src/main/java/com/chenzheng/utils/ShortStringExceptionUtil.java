@@ -2,9 +2,6 @@ package com.chenzheng.utils;
 
 public class ShortStringExceptionUtil extends Exception {
 
-    public ShortStringExceptionUtil() {
-        super();
-    }
 
     /**
      *
@@ -12,6 +9,10 @@ public class ShortStringExceptionUtil extends Exception {
      */
     public ShortStringExceptionUtil(String message) {
         super(message);
+    }
+
+    public ShortStringExceptionUtil() {
+        super();
     }
 
     public ShortStringExceptionUtil(String message, Throwable cause) {
