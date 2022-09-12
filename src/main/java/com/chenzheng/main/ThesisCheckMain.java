@@ -1,5 +1,7 @@
 package com.chenzheng.main;
 
+import com.chenzheng.utils.HammingUtil;
+import com.chenzheng.utils.SimHashUtil;
 import com.chenzheng.utils.TxtIOUtil;
 
 public class ThesisCheckMain {
