@@ -8,7 +8,7 @@ import java.io.*;
 public class TxtIOUtil {
 
     /**
-     * 读出txt文件
+     * 简单的TXT读取工具类，读出txt文件
      * 传入文件绝对路径，将文件内容转化为 String字符串输出
      * @param txtPath 文件路径
      * @return 文件内容

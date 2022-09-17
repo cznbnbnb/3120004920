@@ -3,7 +3,7 @@ package chenzheng.exception;
 import com.chenzheng.utils.SimHashUtil;
 import org.junit.Test;
 
-public class ShortStringExceptionTest {
+public class CustomExceptionTest {
 
     @Test
     public void shortStringExceptionTest(){

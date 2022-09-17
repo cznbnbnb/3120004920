@@ -10,6 +10,7 @@ public class ThesisCheckMain {
         // 从命令行输入的路径名读取对应的文件，将文件的内容转化为对应的字符串
         String str0 = TxtIOUtil.readTxt(args[0]);
         String str1 = TxtIOUtil.readTxt(args[1]);
+        //从命令行输入写入文件的绝对路径名
         String resultFileName = args[2];
         // 由字符串得出对应的 simHash值
         String simHash0 = SimHashUtil.getSimHash(str0);

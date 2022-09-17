@@ -3,25 +3,26 @@ package com.chenzheng.utils;
 public class HammingUtil {
 
     /**
-     * 输入两个simHash值，计算它们的海明距离
+     * 传入获取的两个simHash值，计算它们的海明距离，服务于getSimilarity
      * @param simHash1
      * @param simHash2
      * @return 海明距离
      */
     public static int getHammingDistance(String simHash1, String simHash2) {
-        int distance = 0;
+        //定义返回的海明距离
+        int hammingDistance = 0;
         if (simHash1.length() != simHash2.length()) {
-            // 出错，返回-1
-            distance = -1;
+            // 数据出错，返回-1
+            hammingDistance = -1;
         } else {
             for (int i = 0; i < simHash1.length(); i++) {
                 // 每一位进行比较
                 if (simHash1.charAt(i) != simHash2.charAt(i)) {
-                    distance++;
+                    hammingDistance++;
                 }
             }
         }
-        return distance;
+        return hammingDistance;
     }
 
     /**
