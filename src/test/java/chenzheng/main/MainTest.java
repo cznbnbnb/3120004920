@@ -80,7 +80,7 @@ public class MainTest {
         //源文件与dis_10文件的对比
         String str0 = TxtIOUtil.readTxt("D:/test/orig.txt");
         String str1 = TxtIOUtil.readTxt("D:/test/orig_0.8_dis_10.txt");
-        String resFileName = "D:/test/ansOrigAndDis10Test.txt";
+        String resFileName = "D:/test/resOrigAndDis10Test.txt";
         double ans = HammingUtil.getSimilarity(SimHashUtil.getSimHash(str0), SimHashUtil.getSimHash(str1));
         String mes = "dis_10文件";
         TxtIOUtil.writeTxt(mes,resFileName);
