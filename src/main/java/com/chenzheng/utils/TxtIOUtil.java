@@ -45,12 +45,26 @@ public class TxtIOUtil {
      */
     public static void writeTxt(double txtElem,String txtPath){
         String str = Double.toString(txtElem);
+        str="与源文件的相似程度为："+str;
         File file = new File(txtPath);
         FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(file, true);
-            fileWriter.write(str, 0, (str.length() > 3 ? 4 : str.length()));
+            fileWriter.write(str, 0, (str.length() > 13 ? 14 : str.length()));
             fileWriter.write("\r\n");
+            // 关闭资源
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    //写入测试类型字符信息
+    public static void writeTxt(String mes,String txtPath){
+        File file = new File(txtPath);
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter(file, true);
+            fileWriter.write(mes, 0, mes.length());
             // 关闭资源
             fileWriter.close();
         } catch (IOException e) {
