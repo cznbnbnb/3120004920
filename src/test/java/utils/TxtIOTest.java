@@ -1,16 +1,21 @@
-package chenzheng.utils;
+package utils;
 
-import com.chenzheng.utils.TxtIOUtil;
 import org.junit.Test;
 
-public class TxtIOUtilsTest {
+import java.io.*;
+import java.util.ArrayList;
 
+/**
+ * 读写txt文件的工具类
+ */
+public class TxtIOTest {
+
+ 
     @Test
     public void readTxtTest() {
         // 路径存在，正常读取
-        String str = TxtIOUtil.readTxt("D:/test/orig.txt");
-        String[] strings = str.split(" ");
-        for (String string : strings) {
+        ArrayList<String> strs = TxtIOUtil.readTxt("D:/test/Answers.txt");
+        for (String string : strs) {
             System.out.println(string);
         }
     }
@@ -18,10 +23,9 @@ public class TxtIOUtilsTest {
     @Test
     public void writeTxtTest() {
         // 路径存在，正常写入
-        double[] elem = {0.66, 0.55, 0.44, 0.33, 0.22};
-        for (int i = 0; i < elem.length; i++) {
-            TxtIOUtil.writeTxt(elem[i], "D:/test/ans.txt");
-        }
+        ArrayList<String> arrayList= TxtIOUtil.readTxt("D:/test/Answers.txt");;
+        TxtIOUtil.writeTxt(arrayList, "D:/test/TxtIOTest.txt");
+
     }
 
     @Test
@@ -37,6 +41,4 @@ public class TxtIOUtilsTest {
         for (int i = 0; i < elem.length; i++) {
             TxtIOUtil.writeTxt(elem[i], "User:/test/ans.txt");
         }
-    }
-
 }

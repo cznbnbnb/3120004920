@@ -1,6 +1,7 @@
-package com.chenzheng.utils;
+package utils;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * 读写txt文件的工具类
@@ -13,8 +14,8 @@ public class TxtIOUtil {
      * @param txtPath 文件路径
      * @return 文件内容
      */
-    public static String readTxt(String txtPath) {
-        String str = "";
+    public static ArrayList<String> readTxt(String txtPath) {
+        ArrayList<String> arraylist = new ArrayList<>();
         String strLine;
         // 将 txt文件按行读入 str中
         File file = new File(txtPath);
@@ -25,7 +26,7 @@ public class TxtIOUtil {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             // 字符串拼接
             while ((strLine = bufferedReader.readLine()) != null) {
-                str += strLine;
+                arraylist.add(strLine) ;
             }
             // 关闭资源
             inputStreamReader.close();
@@ -34,42 +35,38 @@ public class TxtIOUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return str;
+        return arraylist;
     }
 
     /**
      * 写入txt文件
      * 传入内容、文件全路径名，将内容写入文件并换行
-     * @param txtElem 传入的内容
+     * @param arrayList 传入的内容
      * @param txtPath 写入的文件路径
      */
-    public static void writeTxt(double txtElem,String txtPath){
-        String str = Double.toString(txtElem);
-        str="与源文件的相似程度为："+str;
-        File file = new File(txtPath);
+    public static void writeTxt(ArrayList<String> arrayList, String txtPath){
         FileWriter fileWriter = null;
         try {
-            fileWriter = new FileWriter(file, true);
-            fileWriter.write(str, 0, (str.length() > 13 ? 14 : str.length()));
-            fileWriter.write("\r\n");
-            // 关闭资源
+            fileWriter = new FileWriter(txtPath);
+            for (int i = 0; i < arrayList.size(); i++) {
+                fileWriter.append(arrayList.get(i)+"\n");
+            }
             fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    //写入测试类型字符信息
-    public static void writeTxt(String mes,String txtPath){
-        File file = new File(txtPath);
-        FileWriter fileWriter = null;
-        try {
-            fileWriter = new FileWriter(file, true);
-            fileWriter.write(mes, 0, mes.length());
-            // 关闭资源
-            fileWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
+    }
+    public static void writeTxt(String s, String txtPath){
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter(txtPath);
+            fileWriter.append(s);
+
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
