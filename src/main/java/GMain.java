@@ -14,7 +14,12 @@ public class GMain {
         Scanner scanner = new Scanner(System.in);
         int a = scanner.nextInt();
         if(a == 1){
-            CreatFormulate.Creat();
+            Scanner input=new Scanner(System.in);
+            System.out.println("请输入要输出多少道运算题");
+            int howMany=input.nextInt();
+            System.out.println("请输入你要计算数的最大值");
+            int max=input.nextInt();
+            CreatFormulate.Creat(howMany,max,"D:/test/Exercises.txt","D:/test/Answers.txt");
         }else {
             String jud = Judgment.Judge("D:/test/Answers.txt","D:/test/Ans.txt");
             TxtIOUtil.writeTxt(jud,"D:/test/Judgment.txt");

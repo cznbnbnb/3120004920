@@ -1,23 +1,18 @@
 package utils;
 import java.util.*;
 public class CreatFormulate {
-    public static void Creat(){
-        Scanner input=new Scanner(System.in);
-        System.out.println("请输入要输出多少道运算题");
-        int h=input.nextInt();
-        String [] arr1=new String[h];
-        System.out.println("请输入你要计算数的最大值");
-        int g=input.nextInt();
+    public static void Creat(int howMany,int max,String exercisesTxt,String answersTxt){
+        String [] arr1=new String[howMany];
         Random random = new Random();
         char arr[] = {'+','-','*','÷'};
         ArrayList<String> exercises = new ArrayList<>();
         ArrayList<String> answers = new ArrayList<>();
         int j = 0;
-        for(int i=0;i<h;i++)
+        for(int i=0;i<howMany;i++)
         {
             j = i+1;
-            int u=random.nextInt(g);
-            int v=random.nextInt(g)+1;
+            int u=random.nextInt(max);
+            int v=random.nextInt(max)+1;
             char w=arr[random.nextInt(4)];
             int flag = random.nextInt(2);
             if (flag==1){
@@ -28,8 +23,8 @@ public class CreatFormulate {
                     answers.add(j+": "+Calculator.fractionOper(u+"/1 "+w+" "+v+"/1"));
                 }
             }else {
-                int x=random.nextInt(g);
-                int y=random.nextInt(g)+1;
+                int x=random.nextInt(max);
+                int y=random.nextInt(max)+1;
                 if(w=='-'&&((double)u/(double)v)<((double)x/(double)y)){
                     i--;
                 }else {
@@ -40,9 +35,7 @@ public class CreatFormulate {
             }
 
         }
-        TxtIOUtil.writeTxt(exercises,"D:/test/Exercises.txt");
-        TxtIOUtil.writeTxt(answers,"D:/test/Answers.txt");
-
-
+        TxtIOUtil.writeTxt(exercises,exercisesTxt);
+        TxtIOUtil.writeTxt(answers,answersTxt);
     }
 }
