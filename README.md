@@ -11,12 +11,12 @@
 | · Design Review                         | · 设计复审                              | 10               | 16               |
 | · Coding Standard                       | · 代码规范 (为目前的开发制定合适的规范) | 10               | 5                |
 | · Design                                | · 具体设计                              | 30               | 16               |
-| · Coding                                | · 具体编码                              | 90               | 88               |
+| · Coding                                | · 具体编码                              | 90               | 79               |
 | · Code Review                           | · 代码复审                              | 60               | 15               |
-| · Test                                  | · 测试（自我测试，修改代码，提交修改）  | 90               | 67               |
-| Reporting                               | 报告                                    | 30               | 45               |
+| · Test                                  | · 测试（自我测试，修改代码，提交修改）  | 80               | 57               |
+| Reporting                               | 报告                                    | 20               | 45               |
 | · Test Repor                            | · 测试报告                              | 30               | 28               |
 | · Size Measurement                      | · 计算工作量                            | 30               | 15               |
 | · Postmortem & Process Improvement Plan | · 事后总结, 并提出过程改进计划          | 35               | 20               |
-|                                         | · 合计                                  | 470              | 347              |
+|                                         | · 合计                                  | 450              | 328              |
 
