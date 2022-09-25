@@ -11,6 +11,7 @@ public class CalculatorTest {
         System.out.println(Calculator.findMaxDivisor(15,45));
         System.out.println(Calculator.findMaxDivisor(15,34));
         System.out.println(Calculator.findMaxDivisor(3423,432));
+        System.out.println("_______________________________________________________________");
     }
     @Test
 
